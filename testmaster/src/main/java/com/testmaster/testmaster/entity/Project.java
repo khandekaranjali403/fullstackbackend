@@ -1,6 +1,7 @@
 package com.testmaster.testmaster.entity;
 
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,15 +15,20 @@ import java.util.List;
 @NoArgsConstructor
 public class Project {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String description;
+    private String projectDetails;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+
     private List<Task> tasks;
+
+
 
 //    public void addTask(Task task){
 //        tasks.add(task);
